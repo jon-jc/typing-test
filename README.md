@@ -21,7 +21,7 @@ To get a local copy up and running, follow these simple steps.
   npm install npm@latest -g
 Installation
 Clone the repository
-sh
+ ```shsh
 Copy code
 git clone https://github.com/yourusername/typingspeedtester.git
 Navigate to the project directory
