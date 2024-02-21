@@ -1,6 +1,7 @@
 import { useState } from "react";
 import useWords from "./useWords";
 
+
 export type currentState = "start" | "run" |"finish";
 
 const NUM_OF_WORDS = 12;
