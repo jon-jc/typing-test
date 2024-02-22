@@ -32,7 +32,7 @@ const useCountdownTimer = (seconds: number) =>{
         if (!timeLeft && intervalRef.current) {
             console.log("clear timer");
 
-            clearInterval();
+            clearInterval(intervalRef.current);
         }
     }, [timeLeft, intervalRef]);
 

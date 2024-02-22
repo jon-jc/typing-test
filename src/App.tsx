@@ -6,14 +6,15 @@ import useEngine from "./hooks/useEngine";
 const words = faker.random.words(10)
 
 const App = () => {
-  const {state, words} = useEngine();
 
+  const {state, words, timeLeft, typed} = useEngine();
+  
   return (
     <>
       <TypingTimer timeLeft={60}/>
       <WordContainer>
        <RandomWords words={words}/>
-       <TypingInput className="absolute inset-0" userInput={"test"}/>
+       <TypingInput className="absolute inset-0" userInput={typed}/>
       </WordContainer>
       <RestartButton
         className={"mx-auto mt-10 text-slate-500"}
