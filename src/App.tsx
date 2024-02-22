@@ -11,7 +11,10 @@ const App = () => {
   
   return (
     <>
-      <h1 className="text-cyan-500 text-center text-2xl py-20">Typing Speed Test</h1>
+      <h1 className="text-cyan-500 text-center text-2xl py-10">Typing Speed Test</h1>
+      <a href="https://www.linkedin.com/in/jon-jc/" target="_blank" rel="noopener noreferrer" className="flex align-center mb-10 bg-red-200 text-center py-2 px-4 rounded-full hover:bg-red-200 hover:text-white hover:shadow-lg hover:shadow-pink-500/50 transition-all duration-300">
+        Made by Jonathan Cho
+      </a>
       <TypingTimer timeLeft={timeLeft}/>
       <WordContainer>
        <RandomWords words={words}/>
@@ -26,6 +29,7 @@ const App = () => {
         errors={errors}
         accuracy={calculateAccuracyPercentage(errors, totalTyped)}
         total={totalTyped}
+        wpm={(totalTyped / 5) * 2}
       />
       <LinkedInButton/>
      

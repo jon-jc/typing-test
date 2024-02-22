@@ -7,12 +7,14 @@ const ResultPage = ({
     errors,
     accuracy,
     total,
+    wpm,
     className,
 }: {
     state: currentState
     errors: number;
     accuracy: number;
     total: number;
+    wpm: number;
     className?: string;
 
 
@@ -48,6 +50,11 @@ const ResultPage = ({
              animate={animate}
              transition={{...duration, delay: 1}}
             >Typed: {total}</motion.li>
+             <motion.li
+             initial={firstOpa}
+             animate={animate}
+             transition={{...duration, delay: 1.2}}
+            >Words Per Minute: {wpm}</motion.li>
         </motion.ul>
     )
 }
