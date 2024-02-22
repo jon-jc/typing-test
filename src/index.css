@@ -8,13 +8,4 @@
     tracking-wider px-4;
   }
 }
-.typingInputContainer {
-  /* Allows words to break and wrap to the next line, but only at whole words */
-  word-wrap: break-word; /* or overflow-wrap: break-word; */
 
-  /* Ensures the text follows normal wrapping rules */
-  white-space: normal;
-
-  /* Optional: Controls how words are broken within a line */
-  word-break: normal;
-}

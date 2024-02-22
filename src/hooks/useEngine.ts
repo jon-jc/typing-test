@@ -8,7 +8,7 @@ import { countErrors } from "../utils/format";
 export type currentState = "start" | "run" |"finish";
 
 const NUM_OF_WORDS = 25;
-const COUNTDOWN_SEC = 60;
+const COUNTDOWN_SEC = 30;
 
 
 const useEngine = () => {
@@ -40,7 +40,6 @@ const useEngine = () => {
       }
     }, [isStarted, startCountdown]);
   
-    // when the time is up, we've finished
     useEffect(() => {
       if (!timeLeft && state === "run") {
         setState("finish");
@@ -48,10 +47,7 @@ const useEngine = () => {
       }
     }, [timeLeft, state, numErrors]);
   
-    /**
-     * when the current words are all filled up,
-     * we generate and show another set of words
-     */
+
     useEffect(() => {
       if (areWordsFinished) {
         numErrors();

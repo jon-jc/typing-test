@@ -1,39 +1,48 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState, useEffect } from "react"
 
-const useCountdown = (seconds: number) => {
-  const [timeLeft, setTimeLeft] = useState(seconds);
-  const intervalRef = useRef<NodeJS.Timer | null>(null);
-  const hasTimerEnded = timeLeft <= 0;
-  const isRunning = intervalRef.current != null;
 
-  const startCountdown = useCallback(() => {
-    if (!hasTimerEnded && !isRunning) {
-      intervalRef.current = setInterval(() => {
-        setTimeLeft((prevTimeLeft) => prevTimeLeft - 1);
-      }, 1000);
-    }
-  }, [setTimeLeft, hasTimerEnded, isRunning]);
+const useCountdownTimer = (seconds: number) =>{
+    const [timeLeft, setTimeLeft] = useState(seconds);
+    const intervalRef = useRef<NodeJS.Timer | null>(null);
 
-  const resetCountdown = useCallback(() => {
-    clearInterval(intervalRef.current!);
-    intervalRef.current = null;
-    setTimeLeft(seconds);
-  }, [seconds]);
+    const startCountdown = useCallback(() => {
+        console.log("starting countdown");
 
-  // when the countdown reaches 0, clear the countdown interval
-  useEffect(() => {
-    if (hasTimerEnded) {
-      clearInterval(intervalRef.current!);
-      intervalRef.current = null;
-    }
-  }, [hasTimerEnded]);
+        intervalRef.current = setInterval(() => {
+            setTimeLeft((timeLeft) => timeLeft - 1);
+          }, 1000);
+        },[setTimeLeft]);
 
-  // clear interval when component unmounts
-  useEffect(() => {
-    return () => clearInterval(intervalRef.current!);
-  }, []);
+        
+    const resetCountdown = useCallback(() => {
 
-  return { timeLeft, startCountdown, resetCountdown };
+        console.log("resetting the count");
+
+        if(intervalRef.current) {
+            clearInterval(intervalRef.current);
+        }
+
+
+        setTimeLeft(seconds);
+
+    }, [seconds]);
+
+
+    useEffect(() => {
+        if (!timeLeft && intervalRef.current) {
+            console.log("clear timer");
+
+            clearInterval(intervalRef.current);
+        }
+    }, [timeLeft, intervalRef]);
+
+    
+
+
+    return {timeLeft, startCountdown, resetCountdown};
+
+
 };
 
-export default useCountdown;
+
+export default useCountdownTimer
