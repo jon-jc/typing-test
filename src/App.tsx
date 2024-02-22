@@ -12,7 +12,7 @@ const App = () => {
   
   return (
     <>
-      <TypingTimer timeLeft={60}/>
+      <TypingTimer timeLeft={timeLeft}/>
       <WordContainer>
        <RandomWords words={words}/>
        <TypingInput className="absolute inset-0" words = {words} userInput={typed}/>
@@ -23,7 +23,7 @@ const App = () => {
       <ResultPage
         state = {state}
         className="mt-10"
-        errors={10}
+        errors={errors}
         accuracy={calculateAccuracyPercentage(errors, totalTyped)}
         total={totalTyped}
       />
