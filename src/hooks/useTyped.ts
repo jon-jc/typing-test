@@ -6,7 +6,7 @@ const isKeyboard = (code: string) => {
         code.startsWith("Key")||
         code.startsWith("Digit")||
         code === "Backspace"||
-        code === "space"
+        code === "Space"
     );
 };
 

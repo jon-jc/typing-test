@@ -14,7 +14,7 @@ const App = () => {
       <TypingTimer timeLeft={60}/>
       <WordContainer>
        <RandomWords words={words}/>
-       <TypingInput className="absolute inset-0" userInput={typed}/>
+       <TypingInput className="absolute inset-0" words = {words} userInput={typed}/>
       </WordContainer>
       <RestartButton
         className={"mx-auto mt-10 text-slate-500"}
