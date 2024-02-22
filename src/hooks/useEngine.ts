@@ -7,8 +7,8 @@ import { countErrors } from "../utils/format";
 
 export type currentState = "start" | "run" |"finish";
 
-const NUM_OF_WORDS = 12;
-const COUNTDOWN_SEC = 40;
+const NUM_OF_WORDS = 25;
+const COUNTDOWN_SEC = 60;
 
 
 const useEngine = () => {

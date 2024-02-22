@@ -12,6 +12,7 @@ const App = () => {
   
   return (
     <>
+      <h1 className="text-cyan-500 text-center text-2xl py-20">Kyun's Typing Test</h1>
       <TypingTimer timeLeft={timeLeft}/>
       <WordContainer>
        <RandomWords words={words}/>
@@ -35,18 +36,18 @@ const App = () => {
 
 const WordContainer = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="relative text-3xl max-w-xl leading-relaxed break-all mt-3">
+    <div className="break-keep text-balance relative text-3xl max-w-xl leading-relaxed mt-3">
       {children}
     </div>
   );
 };
 
 const RandomWords = ({words}: {words: string}) =>{
-  return <div className="text-slate-500">{words}</div>
+  return <div className="text-cyan-500">{words}</div>
 }
 
 const TypingTimer = ({ timeLeft }: { timeLeft: number }) => {
-  return <h2 className="text-primary-200 font-medium">Time: {timeLeft}</h2>
+  return <h2 className="text-cyan-500 font-medium">Time: {timeLeft}</h2>
 }
 
 export default App
