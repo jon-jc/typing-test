@@ -3,11 +3,12 @@ import RestartButton from "./components/RestartButton";
 import ResultPage from "./components/ResultPage";
 import TypingInput from "./components/TypingInput";
 import useEngine from "./hooks/useEngine";
+import { calculateAccuracyPercentage } from "./utils/format";
 const words = faker.random.words(10)
 
 const App = () => {
 
-  const {state, words, timeLeft, typed} = useEngine();
+  const {state, words, timeLeft, typed, errors, restart, totalTyped} = useEngine();
   
   return (
     <>
@@ -18,12 +19,13 @@ const App = () => {
       </WordContainer>
       <RestartButton
         className={"mx-auto mt-10 text-slate-500"}
-        onRestart={() => null}/>
+        onRestart={restart}/>
       <ResultPage
+        state = {state}
         className="mt-10"
         errors={10}
-        accuracy={100}
-        total={200}
+        accuracy={calculateAccuracyPercentage(errors, totalTyped)}
+        total={totalTyped}
       />
      
       

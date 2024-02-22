@@ -1,12 +1,15 @@
 import { motion } from "framer-motion";
 import { formatPercent } from "../utils/format";
+import { State } from "../hooks/useEngine";
 
 const ResultPage = ({
+    state,
     errors,
     accuracy,
     total,
     className,
 }: {
+    state: State
     errors: number;
     accuracy: number;
     total: number;
@@ -18,7 +21,9 @@ const ResultPage = ({
     const animate = {opacity: 1};
     const duration= {duration: 0.2};
 
-
+    if (state !== "finish") {
+        return null;
+    }
 
     return(
         <motion.ul className={`flex flex-col items-center text-primary-200 space-y-3 ${className}`}>
