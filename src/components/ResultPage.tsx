@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { formatPercent } from "../utils/format";
-import { State } from "../hooks/useEngine";
+import type { currentState } from "../hooks/useEngine";
 
 const ResultPage = ({
     state,
@@ -9,7 +9,7 @@ const ResultPage = ({
     total,
     className,
 }: {
-    state: State
+    state: currentState
     errors: number;
     accuracy: number;
     total: number;
