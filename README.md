@@ -1,6 +1,6 @@
 # Typing Speed Tester
 
-This Typing Speed Tester is a web application designed to help users improve their typing speed and accuracy in a fun and interactive way. Built with React, Vite, TypeScript, and TailwindCSS, it offers a sleek user interface and real-time feedback on typing performance.
+This Typing Speed Tester is a web application designed to help users improve their typing speed and accuracy in a fun and interactive way. Built with React, Node.js, TypeScript, and TailwindCSS, it offers a sleek user interface and real-time feedback on typing performance.
 
 ## Getting Started
 
